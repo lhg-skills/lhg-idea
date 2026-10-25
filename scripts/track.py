@@ -27,14 +27,19 @@ ISSUE_TITLE = "📥 上游更新汇总"
 CLONE_TIMEOUT = 5400  # 大仓库(mg-styles-15 约 570MB)需要充裕时间
 
 
-def run(cmd, timeout=120, check=True):
+def run(cmd, timeout=120, check=True, input_text=None):
     return subprocess.run(
-        cmd, capture_output=True, text=True, timeout=timeout, check=check
+        cmd, capture_output=True, text=True, timeout=timeout, check=check,
+        input=input_text,
     ).stdout.strip()
 
 
-def gh(path, method="GET", **kwargs):
+def gh(path, method="GET", json_body=None, **kwargs):
     cmd = ["gh", "api", path, "--method", method]
+    if json_body is not None:
+        cmd += ["--input", "-"]
+        out = run(cmd, timeout=120, input_text=json.dumps(json_body))
+        return json.loads(out) if out else None
     for k, v in kwargs.items():
         if v is not None:
             cmd += ["-f", k, v]
@@ -132,11 +137,12 @@ def save_issue(report):
     body = f"{report}\n\n---\n_由 track.yml 自动更新于 {now}_"
     if target:
         gh(f"repos/{IDEA_REPO}/issues/{target['number']}", "PATCH",
-           body=body, title=ISSUE_TITLE)
+           json_body={"body": body, "title": ISSUE_TITLE})
         print(f"issue #{target['number']} 已更新")
     else:
         created = gh(f"repos/{IDEA_REPO}/issues", "POST",
-                     title=ISSUE_TITLE, body=body, labels=ISSUE_LABEL)
+                     json_body={"title": ISSUE_TITLE, "body": body,
+                                "labels": [ISSUE_LABEL]})
         print(f"issue #{created['number']} 已创建")
 
 
