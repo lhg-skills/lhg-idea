@@ -32,6 +32,14 @@
       "last_sha": "49052d80bfaf9fa8412cc9710530e5e95a3b8d8c",
       "last_check": "2026-10-26",
       "mirrored": true
+    },
+    {
+      "repo": "lemomo-ai/lemo-opuscar",
+      "item": "items/2026-10-26-lemo-opuscar.md",
+      "default_branch": "main",
+      "last_sha": "413a6bd6d78ebd3bdd5abaec9538a26867f890df",
+      "last_check": "2026-10-26",
+      "mirrored": true
     }
   ],
   "people": [
@@ -98,6 +106,21 @@
         "stock",
         "funNLP",
         "NUS_CS5228_KDD_Project"
+      ]
+    },
+    {
+      "github": "lemomo-ai",
+      "item": "items/2026-10-26-person-lemomo-ai.md",
+      "last_check": "2026-10-26",
+      "known_repos": [
+        "awesome-ai-plugins",
+        "codex-radar",
+        "lemo-mod",
+        "lemo-opuscar",
+        "lemo-stampy",
+        "lemo-wake",
+        "lemomo-ai",
+        "open-mcp-apps"
       ]
     }
   ]
