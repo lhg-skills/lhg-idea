@@ -1,0 +1,4 @@
+[
+ {"id":1,"prompt":"收藏 https://github.com/SomeAuthor/SomeRepo","expected":"先研究目标并给出候选触发场景向用户确认,用户满意才落盘;绝不未经确认直接写入条目"},
+ {"id":2,"prompt":"我想做一个产品宣传片,库里收藏的东西有能用的吗?","expected":"grep items 的触发场景段与 topics,给出 top 3-5 匹配+为什么匹配+原文链接;没命中就明说"}
+]
