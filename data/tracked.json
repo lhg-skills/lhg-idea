@@ -72,6 +72,14 @@
       "last_sha": "8a8b66258e3c45d6ae4aea39719468c6428fcb0a",
       "last_check": "2026-10-26",
       "mirrored": true
+    },
+    {
+      "repo": "motiontemplates/all",
+      "item": "items/2026-10-28-motiongit-templates.md",
+      "default_branch": "main",
+      "last_sha": "beb80cdacafb0b4d9d736caf3e2a8997e97a6961",
+      "last_check": "2026-10-28",
+      "mirrored": true
     }
   ],
   "people": [
