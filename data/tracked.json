@@ -80,6 +80,14 @@
       "last_sha": "beb80cdacafb0b4d9d736caf3e2a8997e97a6961",
       "last_check": "2026-10-28",
       "mirrored": true
+    },
+    {
+      "repo": "elayadesign/ai-design-skills",
+      "item": "items/2026-10-29-ai-design-skills.md",
+      "default_branch": "main",
+      "last_sha": "ded7efc9d5c02761c41a03caf3b78f9259ab8828",
+      "last_check": "2026-10-29",
+      "mirrored": true
     }
   ],
   "people": [
