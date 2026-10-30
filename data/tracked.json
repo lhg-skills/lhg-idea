@@ -88,6 +88,14 @@
       "last_sha": "ded7efc9d5c02761c41a03caf3b78f9259ab8828",
       "last_check": "2026-10-29",
       "mirrored": true
+    },
+    {
+      "repo": "jeszhou/overlay-studio",
+      "item": "items/2026-10-31-overlay-studio.md",
+      "default_branch": "main",
+      "last_sha": "e35e1aff9dae3b3addc21f68f3bcd51f95bdc1a8",
+      "last_check": "2026-10-31",
+      "mirrored": true
     }
   ],
   "people": [
