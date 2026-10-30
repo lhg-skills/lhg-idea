@@ -55,6 +55,11 @@ def mirror(repo):
     try:
         run(["git", "clone", "--mirror", f"https://github.com/{repo}.git", f"{tmp}/m.git"],
             timeout=CLONE_TIMEOUT)
+        # 大仓库(vibe-motion/skills 63MB)推送需加大 http post buffer,否则报
+        # "unable to rewind rpc post data"
+        run(["git", "-C", f"{tmp}/m.git", "config", "http.postBuffer", "524288000"])
+        run(["git", "-C", f"{tmp}/m.git", "config", "http.lowSpeedLimit", "1000"])
+        run(["git", "-C", f"{tmp}/m.git", "config", "http.lowSpeedTime", "300"])
         url = f"https://x-access-token:{ARCHIVE_PAT}@github.com/{ARCHIVE_REPO}.git"
         run(["git", "-C", f"{tmp}/m.git", "push", "--force", url,
              f"+refs/heads/*:refs/heads/mirror/{repo}/*",

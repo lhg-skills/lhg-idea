@@ -96,6 +96,14 @@
       "last_sha": "e35e1aff9dae3b3addc21f68f3bcd51f95bdc1a8",
       "last_check": "2026-10-31",
       "mirrored": true
+    },
+    {
+      "repo": "vibe-motion/skills",
+      "item": "items/2026-10-31-vibe-motion-skills.md",
+      "default_branch": "main",
+      "last_sha": "4c86c0d016a3ba22ee673428a494f3c44f84111f",
+      "last_check": "2026-10-31",
+      "mirrored": true
     }
   ],
   "people": [
