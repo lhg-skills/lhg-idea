@@ -104,6 +104,16 @@
       "last_sha": "4c86c0d016a3ba22ee673428a494f3c44f84111f",
       "last_check": "2026-10-31",
       "mirrored": true
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "item": "items/2026-10-31-taste-skill.md",
+      "default_branch": "main",
+      "last_sha": "12af471f627f866411b4bd785b19646d3672784c",
+      "last_check": "2026-10-31",
+      "mirrored": true,
+      "mirror_note": "2026-10-31：main分支镜像被拒（token缺workflow scope，仓库含.github/workflows/check-skills.yml）；scene-media/taste-skill-v1.9/taste-skill-v2三分支已镜像；等token补scope或周一workflow重试"
+    }
     }
   ],
   "people": [
