@@ -114,7 +114,6 @@
       "mirrored": true,
       "mirror_note": "2026-10-31：main分支镜像被拒（token缺workflow scope，仓库含.github/workflows/check-skills.yml）；scene-media/taste-skill-v1.9/taste-skill-v2三分支已镜像；等token补scope或周一workflow重试"
     }
-    }
   ],
   "people": [
     {
