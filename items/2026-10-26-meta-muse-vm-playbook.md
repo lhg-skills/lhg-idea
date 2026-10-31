@@ -58,3 +58,43 @@ Meta Muse(代号 Hatch)给每个用户免费配 8核/7.7G/100G 云 VM,文章是�
 ### 风险备忘(收藏时确认:全文照记,风险自担)
 - 绕地区限制与 18+ 核验、代开 Claude/AWS 均违反对应平台 ToS,存在封号/法律风险;AWS 已对 Muse 电商端实施封锁,风控可能随时扩大
 - 宿主侧有监控,不要在 VM 内存敏感凭证或做依赖隐私的操作
+
+## 补记：web-search CLI 实测深挖（2026-10-31，用户亲手 SSH 进 VM 后逐条核验）
+
+### 路径与数量纠正（原文有误）
+- 原文 `/opt/<user>/bin/` 有误，实测为 `/opt/hatch/bin/`；`/opt` 重启还原、只读是对的
+- 实测数量：`/opt/hatch/bin` 112 个可执行文件、`/opt/hatch/connectors` 73 个连接器、`/opt/muse/skills` 56 个系统 skill——"70+" 对应的是 connectors 数
+
+### "免密"到底免了什么（两层）
+- Meta 自家三件套（web-search、media-generation、tts）：走平台侧官方鉴权，真免配置。tts help 注明 via Meta Shortwave API，media-generation 注明 via Meta's media generation API
+- 第三方（hatch_gws_cli、outlook-mail、notion-cli）：第一次仍需用户亲手点一次 OAuth，之后 CLI 用存好的连接，skill/脚本里永不出现密钥。免的是"管密钥"，不是免认证
+- notion-cli 走标准 MCP 协议，gmail/outlook 走自家 CLI——/opt 工具箱里 MCP 只是接入形态之一
+
+### browser.search vs web-search CLI：同一后端，两扇门（实锤）
+- CLI 返回 JSON 里白纸黑字 `"tool":"browser_search"`，help 写 "via web-search-tool"
+- 窗口里助手调的是 `browser.search` 工具；终端手敲 `/opt/hatch/bin/web-search` 走同一服务。结果、引用、抓取时间一致，只是参数旋钮略有不同（工具侧有垂直频道，CLI 侧有 --max-age-days 等）
+
+### 用量与计费（2026-10-31 实查 subscription-status）
+- 窗口搜索计入每周免费额度：用户当前免费档（无订阅），已用 37%，11/2 6:46 CST 重置；另有 30B 额外 token 池 0% 未动
+- 平台按整轮任务打包计量，不单独列"搜索花了多少 token"
+- CLI 手动调用的计费归属查不到（subscription-status 只给总数不分项）；原文"免限流"说法无依据，存疑
+
+### 调用方式
+- 普通用法：窗口说人话（"帮我搜一下 XX"），命令由助手下，用户不用碰终端
+- 极客接管玩法：SSH 进 VM 后手敲（用户 2026-10-31 已亲手跑通 root@htch-runtime）
+
+### 常用命令
+- `/opt/hatch/bin/web-search "关键词"`（多词自动空格拼接）
+- `/opt/hatch/bin/web-search "关键词" --language zh`
+- `/opt/hatch/bin/web-search "关键词" --max-age-days 7 --max-age-keep-undated`（追热点：新鲜优先、没日期的不冤杀）
+- `/opt/hatch/bin/web-search "关键词" --out ~/workspace/search-$(date +%F).md`（落盘）
+- 通用套路：`/opt/hatch/bin/<工具名> --help`（如 tts、media-generation）
+
+### help 全解要点
+- `--max-age-*` 一家子：默认关闭；`--max-age-days N` 丢掉 N 天前及无日期结果；三个逃生舱 `--max-age-keep-when-empty`（全过期标过期照给）、`--max-age-keep-undated`（无日期排后面保留）、`--max-age-keep-stale`（过期排新鲜后面保留）
+- `--verticals` 可重复传，news/sports/weather/finance/datetime，与窗口垂直频道同源
+- `--location-context`：正常由 daemon 从会话状态自动注入位置（IP/经纬度/时区）；SSH 手敲没有，搜"附近/天气"类强位置查询吃亏——这是手敲与窗口调用的真实差异
+- `--serving-config-name`：覆盖后端排序策略（如 hatch_space_sports_news_obm_merged），高级旋钮
+- `--conversation-id` / `--request-id` / `--iteration-index`：可把手敲调用挂进某轮对话的审计链，可观测性做到命令级
+- `--allow-stub`：默认后端返回 mock 数据直接报错，防拿到假结果
+- `--stdout` 打抽取正文（关摘要）、`--out` 写文件、`--json`/`--raw` 包裹很大（help 自注 not recommended）
