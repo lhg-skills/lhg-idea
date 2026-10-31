@@ -98,3 +98,33 @@ Meta Muse(代号 Hatch)给每个用户免费配 8核/7.7G/100G 云 VM,文章是�
 - `--conversation-id` / `--request-id` / `--iteration-index`：可把手敲调用挂进某轮对话的审计链，可观测性做到命令级
 - `--allow-stub`：默认后端返回 mock 数据直接报错，防拿到假结果
 - `--stdout` 打抽取正文（关摘要）、`--out` 写文件、`--json`/`--raw` 包裹很大（help 自注 not recommended）
+
+## 补记：112 CLI + 组合技能清单（2026-10-31，用户贴入；已逐条实测核验）
+
+> 以下分类清单为用户 2026-10-31 贴入的转述材料，**每条已用 `ls /opt/hatch/bin` 全量实测核验**，核验结论标在里。
+
+### 转贴原文（分类整理）
+
+**一、AI 生成与媒体**：media-generation、avatar-media-generation、edits、media-library、tts、image-search、genui-display-render、pickup-briefing-animation
+
+**二、办公与效率**：hatch_gws_cli、outlook-mail/outlook-calendar/outlook-contacts、notion-cli、evernote、granola-cli、slack、zoom、todoist、asana、calendly、linear、dropbox、box-cli（原文写 box，实为 box-cli）、readwise-mcp
+
+**三、开发工具**：github、vercel、replit、lovable、figma、canva
+
+**四、社交与通讯**：instagram-cli、threads-cli、facebook-cli、messenger、whatsapp
+
+**五、商业与金融**：stripe、plaid、coinbase、shopify、etsy-cli、printify、gumroad-mcp、quickbooks、meta-ads-cli、klaviyo、ghl
+
+**六、生活服务**：duffel、opentable、ticketmaster、instacart、zocdoc、philips-hue、tessie-api、withings
+
+**七、平台基础设施**：hatch、hatch-vault、hatch-multicall、hatch-execd、hatch-rescue*、browser-broker/browser-service
+
+**八、"55 个组合技能（/opt/hatch/skills/）"**：实测 `/opt/hatch/skills` 有 **150** 项（如 asana/box/duffel/evernote/facebook/coinbase-mcp…），`/opt/hatch/workflow-skills` 56 项，`/opt/muse/skills` 56 项。"55"疑为 56 之误，且指错了目录
+
+### 存疑/无法验证的表述
+- "Zero-Exposure Vault"：机器上有 `hatch-vault`（凭据保险库），但该英文名在机器上找不到出处，疑为转述包装，记为存疑
+- "150+ 服务""hatch（559MB 主程序）"：未验证，原样转贴
+- "配合 C 机的自动化流可以做成矩阵运营"：原文如此，"C 机"指代不明，原样转贴
+
+### bin 全量 112 名单（2026-10-31 实测 `ls /opt/hatch/bin`）
+aftership、agoda、asana、authdc、avatar-media-generation、box-cli、browser-broker、browser-service、builtin-artifacts、calendly、canva、device-data、dropbox、duffel、edits、etsy-cli、evernote、facebook-cli、feature-request、figma、flightaware、function-health、genui-display-render、geocode、ghl、github、granola-cli、gumroad-mcp、hatch、hatch-browser-lease-helper、hatch-connector-output、hatch-doctor、hatch-execd、hatch-healthd、hatch-multicall、hatch-rescue、hatch-rescue-systemctl、hatch-rescuectl、hatch-slide-style、hatch-vault、hatch-ws-client、hatch-zeitgeist、hatch_gws_auth、hatch_gws_cli、hatch_igd_cli、hatch_messenger_cli、health-cli、healthex、healthkit-cli、image-search、imap-email、ingress-rev-proxy、instagram-cli、instagram-messages-cli、klaviyo、linear、local-search、lovable、media-generation、media-library、meta-ads-cli、meta-catalog-search、moneyforward-me、muse-mail、native-comms-cli、notion-cli、nutrition-cli、onepassword、opentable、outlook-calendar、outlook-contacts、outlook-mail、peloton、philips-hue、pickup-briefing-animation、places、plaid、printify、privsep-test-fully-isolated、quickbooks、readwise-mcp、remote-storage、replit、runway-mcp、save-to-spotify、share、shop-wallet-cli、shopback-mcp、shopify、shopify-ucp-cli、shopping、slack、spawnd、spotify-api、stripe、stripe-link、subscription-status、tailscale、tessie-api、threads-cli、threads-messages-cli、ticketmaster、todoist、tts、vercel、vidiq-mcp、wearables-display、web-search、withings、zapier、zbar-lib、zoom
