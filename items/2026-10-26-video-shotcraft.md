@@ -19,6 +19,7 @@ mirror: mirror/Vincentwei1021/video-shotcraft
 - 想做卡音乐节拍剪辑 / 帧级视觉 QA 时
 
 ## 要点
+- 在线画廊(样片/动效预览):https://vincentwei1021.github.io/video-shotcraft/
 - 菜谱卡片模式:10 大类(开场/运镜/转场/字体/UI入场/交互/数据/光影/节奏/片尾),每卡写清 timing、easing、编舞,demos/<类别>/<卡片>/ 有参考实现
 - 目录分层范本:SKILL.md(核心规则)+ references/(管线/美学QA/节拍)+ template/(可编译脚手架)+ workbench/(类剪映浏览器编辑器)
 - 每一帧都是代码画的,不是生成模型——截图真实网页 → 选镜 → Remotion 动画 → 帧级 QA
@@ -26,3 +27,4 @@ mirror: mirror/Vincentwei1021/video-shotcraft
 - 配方来源:拆解 ClickUp/Perplexity/Slack/Notion/Figma/Raycast 的宣传片后从零重写
 - Apache-2.0;注意 Remotion 本身商用需单独 license
 - 13.6k stars,是"卡片库模式"跑通的最强证据
+- 2026-10 上游动态(基线 43bd349 → 1266a3e,+5 commits):QA 短片抽样修复、workbench Windows 兼容修复、画廊可直接打开镜头库、SFX 改源自 Freesound 并向 vibe-motion/sound 致谢——与 vibe-motion 生态同源
