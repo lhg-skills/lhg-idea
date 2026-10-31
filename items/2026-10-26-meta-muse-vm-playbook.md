@@ -99,32 +99,33 @@ Meta Muse(代号 Hatch)给每个用户免费配 8核/7.7G/100G 云 VM,文章是�
 - `--allow-stub`：默认后端返回 mock 数据直接报错，防拿到假结果
 - `--stdout` 打抽取正文（关摘要）、`--out` 写文件、`--json`/`--raw` 包裹很大（help 自注 not recommended）
 
-## 补记：112 CLI + 组合技能清单（2026-10-31，用户贴入；已逐条实测核验）
+## 补记：官方 CLI 工具清单（用户最新数据，2026-10-31；附本机实测对照）
 
-> 以下分类清单为用户 2026-10-31 贴入的转述材料，**每条已用 `ls /opt/hatch/bin` 全量实测核验**，核验结论标在里。
+> 本节以**用户最新数据为准**，分类清单为用户 2026-10-31 贴入的转述材料（来源待补）；其后附本机实测对照，差异点单独列出（可能是版本差/渠道差，待确认）。
 
-### 转贴原文（分类整理）
+### 用户最新数据（转贴）
 
-**一、AI 生成与媒体**：media-generation、avatar-media-generation、edits、media-library、tts、image-search、genui-display-render、pickup-briefing-animation
+**一、AI 生成与媒体（视频流水线直接可用）**：media-generation（Meta 大模型生图/生视频，秒级高清，Meta CDN 托管）、avatar-media-generation（数字人/头像生成）、edits（视频编辑）、media-library（媒体素材库管理）、tts（Shortwave 引擎语音合成）、image-search（图片搜索）、genui-display-render（生成式 UI 渲染）、pickup-briefing-animation（简报动画）
 
-**二、办公与效率**：hatch_gws_cli、outlook-mail/outlook-calendar/outlook-contacts、notion-cli、evernote、granola-cli、slack、zoom、todoist、asana、calendly、linear、dropbox、box-cli（原文写 box，实为 box-cli）、readwise-mcp
+**二、办公与效率（免密直连）**：hatch_gws_cli（Gmail/Drive/Calendar/Docs/Sheets/Slides/Forms/Tasks 一个入口）、outlook-mail / outlook-calendar / outlook-contacts（微软系）、notion-cli、evernote、granola-cli（会议记录）、slack、zoom、todoist、asana、calendly、linear、dropbox、box、readwise-mcp、instapaper 类阅读工具
 
-**三、开发工具**：github、vercel、replit、lovable、figma、canva
+**三、开发工具**：github、vercel、replit、lovable、figma / canva
 
-**四、社交与通讯**：instagram-cli、threads-cli、facebook-cli、messenger、whatsapp
+**四、社交与通讯（发布/读取/私信）**：instagram-cli、threads-cli、facebook-cli、messenger、whatsapp——能发帖、读评论、回私信
 
-**五、商业与金融**：stripe、plaid、coinbase、shopify、etsy-cli、printify、gumroad-mcp、quickbooks、meta-ads-cli、klaviyo、ghl
+**五、商业与金融**：stripe、plaid（银行）、coinbase（加密货币）、shopify、etsy-cli、printify、gumroad-mcp、quickbooks、meta-ads-cli、klaviyo（邮件营销）、ghl（CRM）
 
-**六、生活服务**：duffel、opentable、ticketmaster、instacart、zocdoc、philips-hue、tessie-api、withings
+**六、生活服务**：duffel（机票）、opentable（餐厅）、ticketmaster（票务）、instacart（买菜）、zocdoc（挂号）、philips-hue（智能灯）、tessie-api（特斯拉）、withings（健康秤）……
 
-**七、平台基础设施**：hatch、hatch-vault、hatch-multicall、hatch-execd、hatch-rescue*、browser-broker/browser-service
+**七、平台基础设施**：hatch（主程序）、hatch-vault（凭据保险库，即 Zero-Exposure Vault）、hatch-multicall（批量调用）、hatch-execd（命令执行）、hatch-rescue*（救援）、browser-broker / browser-service（浏览器自动化）
 
-**八、"55 个组合技能（/opt/hatch/skills/）"**：实测 `/opt/hatch/skills` 有 **150** 项（如 asana/box/duffel/evernote/facebook/coinbase-mcp…），`/opt/hatch/workflow-skills` 56 项，`/opt/muse/skills` 56 项。"55"疑为 56 之误，且指错了目录
+**八、55 个组合技能（/opt/hatch/skills/）**：单项工具的场景化封装（旅行规划、理财、健身、社交内容运营、SMB 产品图、客户跟进、App 创建……），每个技能内部编排多个单项工具
 
-### 存疑/无法验证的表述
-- "Zero-Exposure Vault"：机器上有 `hatch-vault`（凭据保险库），但该英文名在机器上找不到出处，疑为转述包装，记为存疑
-- "150+ 服务""hatch（559MB 主程序）"：未验证，原样转贴
-- "配合 C 机的自动化流可以做成矩阵运营"：原文如此，"C 机"指代不明，原样转贴
+**原文价值判断（转贴）**：①免密直连 Gmail/Notion/Slack/Instagram 等 150+ 服务，开箱即用；②视频流水线：media-generation 生素材 + tts 配音 + ffmpeg 剪辑，一台机器闭环；③对话里说"帮我查一下…"自动调用对应工具，无需手动指定
 
-### bin 全量 112 名单（2026-10-31 实测 `ls /opt/hatch/bin`）
-aftership、agoda、asana、authdc、avatar-media-generation、box-cli、browser-broker、browser-service、builtin-artifacts、calendly、canva、device-data、dropbox、duffel、edits、etsy-cli、evernote、facebook-cli、feature-request、figma、flightaware、function-health、genui-display-render、geocode、ghl、github、granola-cli、gumroad-mcp、hatch、hatch-browser-lease-helper、hatch-connector-output、hatch-doctor、hatch-execd、hatch-healthd、hatch-multicall、hatch-rescue、hatch-rescue-systemctl、hatch-rescuectl、hatch-slide-style、hatch-vault、hatch-ws-client、hatch-zeitgeist、hatch_gws_auth、hatch_gws_cli、hatch_igd_cli、hatch_messenger_cli、health-cli、healthex、healthkit-cli、image-search、imap-email、ingress-rev-proxy、instagram-cli、instagram-messages-cli、klaviyo、linear、local-search、lovable、media-generation、media-library、meta-ads-cli、meta-catalog-search、moneyforward-me、muse-mail、native-comms-cli、notion-cli、nutrition-cli、onepassword、opentable、outlook-calendar、outlook-contacts、outlook-mail、peloton、philips-hue、pickup-briefing-animation、places、plaid、printify、privsep-test-fully-isolated、quickbooks、readwise-mcp、remote-storage、replit、runway-mcp、save-to-spotify、share、shop-wallet-cli、shopback-mcp、shopify、shopify-ucp-cli、shopping、slack、spawnd、spotify-api、stripe、stripe-link、subscription-status、tailscale、tessie-api、threads-cli、threads-messages-cli、ticketmaster、todoist、tts、vercel、vidiq-mcp、wearables-display、web-search、withings、zapier、zbar-lib、zoom
+### 本机实测对照（2026-10-31，hatch 0.1.0，本机 bin 实测 112 个）
+- ✅ 清单中绝大多数名字在本机 bin 存在
+- ⚠️ 差异点（待确认）：messenger→本机为 `hatch_messenger_cli`；whatsapp / instacart / zocdoc 本机 bin 无；coinbase 本机 bin 无但 skills 目录有 `coinbase-mcp`；box 实为 `box-cli`
+- ⚠️ "55 个组合技能"：实测 `/opt/hatch/skills` 150 项、`/opt/hatch/workflow-skills` 56 项、`/opt/muse/skills` 56 项，"55"疑为 56 之误且指错目录
+- ⚠️ "Zero-Exposure Vault"：本机只有 `hatch-vault`，该英文名无出处，疑为转述包装
+- bin 全量 112 名单：aftership、agoda、asana、authdc、avatar-media-generation、box-cli、browser-broker、browser-service、builtin-artifacts、calendly、canva、device-data、dropbox、duffel、edits、etsy-cli、evernote、facebook-cli、feature-request、figma、flightaware、function-health、genui-display-render、geocode、ghl、github、granola-cli、gumroad-mcp、hatch、hatch-browser-lease-helper、hatch-connector-output、hatch-doctor、hatch-execd、hatch-healthd、hatch-multicall、hatch-rescue、hatch-rescue-systemctl、hatch-rescuectl、hatch-slide-style、hatch-vault、hatch-ws-client、hatch-zeitgeist、hatch_gws_auth、hatch_gws_cli、hatch_igd_cli、hatch_messenger_cli、health-cli、healthex、healthkit-cli、image-search、imap-email、ingress-rev-proxy、instagram-cli、instagram-messages-cli、klaviyo、linear、local-search、lovable、media-generation、media-library、meta-ads-cli、meta-catalog-search、moneyforward-me、muse-mail、native-comms-cli、notion-cli、nutrition-cli、onepassword、opentable、outlook-calendar、outlook-contacts、outlook-mail、peloton、philips-hue、pickup-briefing-animation、places、plaid、printify、privsep-test-fully-isolated、quickbooks、readwise-mcp、remote-storage、replit、runway-mcp、save-to-spotify、share、shop-wallet-cli、shopback-mcp、shopify、shopify-ucp-cli、shopping、slack、spawnd、spotify-api、stripe、stripe-link、subscription-status、tailscale、tessie-api、threads-cli、threads-messages-cli、ticketmaster、todoist、tts、vercel、vidiq-mcp、wearables-display、web-search、withings、zapier、zbar-lib、zoom
