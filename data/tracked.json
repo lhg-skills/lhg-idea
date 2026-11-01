@@ -113,6 +113,14 @@
       "last_check": "2026-10-31",
       "mirrored": true,
       "mirror_note": "2026-10-31：main分支镜像被拒（token缺workflow scope，仓库含.github/workflows/check-skills.yml）；scene-media/taste-skill-v1.9/taste-skill-v2三分支已镜像；等token补scope或周一workflow重试"
+    },
+    {
+      "repo": "morluto/rea",
+      "item": "items/2026-10-31-rea.md",
+      "default_branch": "main",
+      "last_sha": "a6caa79bf4f393c02601fbf2f6df246eae0b1558",
+      "last_check": "2026-10-31",
+      "mirrored": true
     }
   ],
   "people": [
