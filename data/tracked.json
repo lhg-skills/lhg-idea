@@ -121,6 +121,14 @@
       "last_sha": "a6caa79bf4f393c02601fbf2f6df246eae0b1558",
       "last_check": "2026-10-31",
       "mirrored": true
+    },
+    {
+      "repo": "larashero3-dotcom/lieflat-less-ai-tone",
+      "item": "items/2026-11-06-lieflat-less-ai-tone.md",
+      "default_branch": "main",
+      "last_sha": "53160078a04926d98de57a233549612d1b89bdc9",
+      "last_check": "2026-11-06",
+      "mirrored": true
     }
   ],
   "people": [
@@ -301,6 +309,24 @@
         "x-mentor-skill",
         "zhang-yiming-skill",
         "zhangxuefeng-skill"
+      ]
+    },
+    {
+      "github": "larashero3-dotcom",
+      "item": "items/2026-11-06-person-lieflat.md",
+      "last_check": "2026-11-06",
+      "known_repos": [
+        "larashero3-dotcom",
+        "lieflat-cards",
+        "lieflat-charts",
+        "lieflat-code-video",
+        "lieflat-diagrams",
+        "lieflat-gongwen",
+        "lieflat-html-design",
+        "lieflat-less-ai-tone",
+        "soul.skill",
+        "writing-dna-skill",
+        "yingxian-pagoda"
       ]
     }
   ]
